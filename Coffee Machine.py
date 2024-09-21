@@ -74,11 +74,11 @@ while more_drink:
                 print(f"here is you {drink_choice} ENJOY!")
             else:
                 print("Sorry that's not enough money. Money refunded.")
-        # Off = Exit the script with code (0)
-        elif drink_choice == "off":
-            print("Coffee Machine Shutdown")
-            print(f"Total earns are {money_earn}₪")
-            exit(0)
+    # Off = Exit the script with code (0)
+    elif drink_choice == "off":
+        print("Coffee Machine Shutdown")
+        print(f"Total earns are {money_earn}₪")
+        exit(0)
     # While loop for maintenance
     while drink_choice == "maintenance":
         # Enter maintenance mode
