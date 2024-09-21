@@ -74,27 +74,38 @@ while more_drink:
                 print(f"here is you {drink_choice} ENJOY!")
             else:
                 print("Sorry that's not enough money. Money refunded.")
-    # Enter maintenance mode
-    if drink_choice == "maintenance":
-        print("You enter maintenance mode, here are your options:\n"
-              "'report': check the amount of ingredients you got left\n"
-              "'restock': add ingredients as you like  \n"
-              "'get_money': take the money out of the machine")
-        maintenance = input("Pick one of the above or type 'back' to go to the drink section: ")
-    # Report = Show the current resource values
-        if maintenance == "report":
-            print(f"You got \nWater {resources["water"]} \nMilk {resources["milk"]} \nCoffee {resources["coffee"]} \nMoney {money_earn}₪")
-        # Restock = add water, milk and coffee to the Machine
-        elif maintenance == "restock":
-            restock_water = int(input("Amount of watter to add? "))
-            resources["water"] += restock_water
-            restock_milk = int(input("Amount of milk to add? "))
-            resources["milk"] += restock_milk
-            restock_coffee = int(input("Amount of coffee to add? "))
-            resources["coffee"] += restock_coffee
-            print(f"You added \n{restock_water} amount of water \n{restock_milk} amount of milk \n{restock_coffee} amount of coffee")
         # Off = Exit the script with code (0)
-    elif drink_choice == "off":
-        print("Coffee Machine Shutdown")
-        print(f"Total earns are {money_earn}₪")
-        exit(0)
+        elif drink_choice == "off":
+            print("Coffee Machine Shutdown")
+            print(f"Total earns are {money_earn}₪")
+            exit(0)
+    # While loop for maintenance
+    while drink_choice == "maintenance":
+        # Enter maintenance mode
+        if drink_choice == "maintenance":
+            print("You enter maintenance mode, here are your options:\n"
+                  "'report': check the amount of ingredients you got left\n"
+                  "'restock': add ingredients as you like  \n"
+                  "'get_money': take the money out of the machine\n"
+                  "'return': return to selection mode")
+            maintenance = input("Pick one of the above or type 'return' to go to the drink section: ")
+        # Report = Show the current resource values
+            if maintenance == "report":
+                print(f"You got \nWater {resources["water"]} \nMilk {resources["milk"]} \nCoffee {resources["coffee"]} \nMoney {money_earn}₪")
+            # Restock = add water, milk and coffee to the Machine
+            elif maintenance == "restock":
+                restock_water = int(input("Amount of watter to add? "))
+                resources["water"] += restock_water
+                restock_milk = int(input("Amount of milk to add? "))
+                resources["milk"] += restock_milk
+                restock_coffee = int(input("Amount of coffee to add? "))
+                resources["coffee"] += restock_coffee
+                print(f"You added \n{restock_water} amount of water \n{restock_milk} amount of milk \n{restock_coffee} amount of coffee")
+            # Get the money of the machine
+            elif maintenance == "get_money":
+                print(f"total earn for now is {money_earn}₪")
+                money_earn = 0
+                print(f"take earns, money in machine is {money_earn}₪")
+            # Return to go back to the Coffee Machine Selection
+            elif maintenance == "return":
+                drink_choice = True
